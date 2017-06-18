@@ -37,7 +37,21 @@
 			<groupId>com.pi4j</groupId>
 			<artifactId>pi4j-core</artifactId>
 			<version>1.2-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.pi4j</groupId>
+					<artifactId>pi4j-native</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
+		<!-- used for the TemperatureSensor interface -->
+		<dependency>
+			<groupId>com.pi4j</groupId>
+			<artifactId>pi4j-device</artifactId>
+			<version>1.2-SNAPSHOT</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
