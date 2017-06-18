@@ -3,7 +3,9 @@
  */
 package org.aks.gpio.controller;
 
-import org.aks.gpio.svc.PirSensorService;
+import java.io.IOException;
+
+import org.aks.gpio.svc.TemperatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-public class PirMotion {
+public class Temperature {
 
 	@Autowired
-	PirSensorService pirSensor;
+	TemperatureService temperatureService;
 	
-	@RequestMapping("/isMotionDetected")
-	public String isMotionDetected() {
-		return pirSensor.isMotionDetected().toString();
+	@RequestMapping("/getTemp")
+	public String getTemp() throws IOException {
+		return temperatureService.getTemperature().toString();
 	}
 }
