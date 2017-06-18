@@ -21,11 +21,6 @@ public class Led {
 
 	private static GpioPinDigitalOutput gpioOutputPin;
 
-	@RequestMapping("/")
-	public String greeting() {
-		return "Hello world!";
-	}
-
 	@RequestMapping("/light")
 	public String light() {
 		GpioController gpioController = GpioFactory.getInstance();
