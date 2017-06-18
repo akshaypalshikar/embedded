@@ -25,7 +25,7 @@ public class PirSensorService {
 	final GpioPinDigitalInput pirMotionsensor = gpioController.provisionDigitalInputPin(RaspiPin.GPIO_04, PinPullResistance.PULL_DOWN);
 	
 	public Boolean isMotionDetected() {
-		gpioController.addListener(new GpioPinListenerDigital() {
+		pirMotionsensor.addListener(new GpioPinListenerDigital() {
 			public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 				if (event.getState().isHigh()) {
 					System.out.println("Motion Detected!");
@@ -33,6 +33,7 @@ public class PirSensorService {
 				}
 				if (event.getState().isLow()) {
 					System.out.println("No Motion Detected.");
+					isMotionDetected = false;
 				}
 			}
 		});
