@@ -5,7 +5,7 @@ package org.aks.gpio.controller;
 
 import java.io.IOException;
 
-import org.aks.gpio.svc.VibSensorService;
+import org.aks.gpio.svc.RangeSensorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-public class VibrationSensor {
+public class RangeSensor {
 
 	@Autowired
-	VibSensorService vibSensorService;
+	RangeSensorService rangeSensorService;
 
-	@RequestMapping("/isVibrating")
-	public String isVibrating() throws IOException {
-		return vibSensorService.isVibrating().toString();
+	@RequestMapping("/getRange")
+	public String getRange() throws IOException {
+		return rangeSensorService.getRange().toString();
 	}
 }
